@@ -1,0 +1,247 @@
+<!-- Name: Vysalini Indukuri
+Name of file: homework1.html
+Date created: Feb 16, 2024
+Date last edited: Feb 21, 2024
+Description:  Explorilla is a travel planning website that helps users organize their adventures. With an intuitive registration form and responsive design, users can input their preferences for accommodations, activities, dining, transportation, and more. Whether planning solo trips or family vacations, also offers personalized recommendations to chart memorable journeys.-->
+
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorilla</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="/assets/signup.css">
+    <!-- Link to external JavaScript file with deferred loading -->
+    <script src="/homework1.js" defer></script>
+</head>
+<body>
+    <div class="banner">
+    <header>
+        <div class="wrapper">
+          <div class="logo">
+            <img src="/images/logo.png" href="/main.html"alt="Logo">
+          </div>
+          <div class="explorilla">
+            <h1>Explorilla</h1>
+            <p>Chart your epic journey!</p>
+        </div>
+          <p id="currentDate"></p>
+        </div>
+      </header>
+      </div>
+      
+
+      <!-- Registration form -->
+    <form id="regForm">
+        <table>
+
+            <!-- Personal details-->
+            <tr>
+                <td><label for="firstName">First Name:</label></td>
+                <td><input type="text" id="firstName" name="firstName" maxlength="30" required onkeypress="preventNumbers(event)"></td>
+                <td><label for="middleInitial">Middle Initial:</label></td>
+                <td><input type="text" id="middleInitial" name="middleInitial" maxlength="1" pattern="[A-Za-z]" onkeypress="preventNumbers(event)"></td>
+                <td><label for="lastName">Last Name:</label></td>
+                <td><input type="text" id="lastName" name="lastName" maxlength="30" required onkeypress="preventNumbers(event)"></td>
+            </tr>
+            <tr>
+                <td><label for="username">Username:</label></td>
+                <td><input type="text" id="username" name="username" required></td>
+                <td><label for="pwd">Password:</label></td>
+                <td><input type="password" id="pwd" name="pwd" minlength="8" required></td>
+            </tr>
+            <tr>
+                <td><label for="dob">Date of Birth:</label></td>
+                <td><input type="date" id="dob" name="dob" required></td>
+                <td><label for="ssn">Social Security:</label></td>
+                <td><input type="password" id="ssn" name="ssn" pattern="\d{9,11}" maxlength="11" required onkeypress="preventAlpha(event)"></td>
+            </tr>
+            <tr>
+                <td><label for="address1">Address Line 1:</label></td>
+                <td colspan="3"><input type="text" id="address1" name="address1" maxlength="30" required></td>
+            </tr>
+            <tr>
+                <td><label for="address2">Address Line 2:</label></td>
+                <td colspan="3"><input type="text" id="address2" name="address2" maxlength="30"></td>
+            </tr>
+            <tr>
+                <td><label for="city">City:</label></td>
+                <td><input type="text" id="city" name="city" maxlength="30" pattern="[A-Za-z]+" required onkeypress="preventNumbers(event)"></td>
+                <td><label for="state">State:</label></td>
+                <td>
+                    <select id="state" name="state" required>
+        <option value="">Select State</option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+    </select>
+</td>
+<td><label for="zip">Zip Code:</label></td>
+<td><input type="text" id="zip" name="zip" pattern="\d{5,10}" maxlength="10" required onkeypress="preventAlpha(event)"></td>
+</tr>
+    <td><label for="email">Email:</label></td>
+    <td colspan="2"><input type="email" id="email" name="email" required></td>
+    <td><label for="phone">Phone:</label>
+        <input type="text" id="countryCode" name="countryCode" value="+1" disabled>
+    </td>
+    <td>
+        <input type="text" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" placeholder="1234567890" required onkeypress="preventAlpha(event)">
+    </td>
+
+</tr>
+        <!-- RADIO BUTTONS AND CHECKBOXES-->
+            <td><label>Are you vaccinated?</label></td>
+<td>
+    <label for="vaccinatedYes"><input type="radio" id="vaccinatedYes" name="vaccinated" value="Yes"> Yes</label>
+    <label for="vaccinatedNo"><input type="radio" id="vaccinatedNo" name="vaccinated" value="No"> No</label>
+</td>
+
+<tr>
+    <td><label for="travelType">Travel Type:</label></td>
+    <td colspan="3">
+        <label for="solo"><input type="radio" id="solo" name="travelType" value="solo"> Solo</label>
+        <label for="couple"><input type="radio" id="couple" name="travelType" value="couple"> Couple's Getaway</label>
+        <label for="family"><input type="radio" id="family" name="travelType" value="family"> Family Vacation</label>
+    </td>
+</tr>
+<tr>
+    <td><label for="accommodation">Preferred Accommodation:</label></td>
+    <td colspan="3">
+        <label for="hotels"><input type="checkbox" id="hotels" name="accommodation" value="hotels"> Hotels</label>
+        <label for="vacationRentals"><input type="checkbox" id="vacationRentals" name="accommodation" value="vacationRentals"> Vacation Rentals</label>
+        <label for="resorts"><input type="checkbox" id="resorts" name="accommodation" value="resorts"> Resorts</label>
+    </td>
+</tr>
+    <tr>
+        <td><label for="accommodation">Interests:</label></td>
+        <td colspan="5">
+          <label for="beaches"><input type="checkbox" id="beaches" name="interests" value="beachs"> Beaches</label>
+          <label for="mountains"><input type="checkbox" id="mountains" name="interests" value="mountains"> Mountains</label>
+          <label for="adventure"><input type="checkbox" id="adventure" name="interests" value="adventure"> Adventure</label>
+          <label for="histocial"><input type="checkbox" id="historical" name="interests" value="historical"> Historical</label>
+          <label for="devotional"><input type="checkbox" id="devotional" name="interests" value="devotional"> Devotional</label>
+        </td>
+      </tr>
+    <tr>
+            <td><label for="food">Food and dining preferences:</label></td>
+            <td colspan="3">
+                <label for="finedining"><input type="radio" id="finedining" name="food" value="finedining"> Fine Dining</label>
+                <label for="local"><input type="radio" id="local" name="food" value="local"> Local Cuisine Experience</label>
+                <label for="cooking"><input type="radio" id="cooking" name="food" value="cooking"> Self-Cooking</label>
+            </td>
+        </tr>
+        <tr>
+                <td><label for="activities">Activities and Entertainment:</label></td>
+                <td colspan="4">
+                    <label for="night"><input type="checkbox" id="night" name="activities" value="night"> Nightlife</label>
+                    <label for="outdoor"><input type="checkbox" id="outdoor" name="activities" value="outdoor"> Outdoor Adventures</label>
+                    <label for="spa"><input type="checkbox" id="spa" name="activities" value="spa"> Spa and Wellness treatment</label>
+                    <label for="localcul"><input type="checkbox" id="localcul" name="activities" value="localcal"> Cultural</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="transportation">Transportation Preferences:</label></td>
+                <td colspan="4">
+                    <label for="rentalc"><input type="checkbox" id="rentalc" name="transportation" value="night"> Rental Cars</label>
+                    <label for="trains"><input type="checkbox" id="trains" name="transportation" value="trains"> Trains</label>
+                    <label for="buses"><input type="checkbox" id="buses" name="transportation" value="buses"> Buses</label>
+                    <label for="flights"><input type="checkbox" id="flights" name="activities" value="flights"> Flights</label>
+                </td>
+            </tr>
+
+                <tr>
+                    <td><label for="additional">Additional Services:</label></td>
+                    <td colspan="5">
+                        <label for="insurance"><input type="checkbox" id="night" name="additional" value="insurance"> Travel Insurance</label>
+                        <label for="translation"><input type="checkbox" id="translation" name="addtional" value="translation"> Language Translation Services</label>
+                        <label for="guide"><input type="checkbox" id="guide" name="additional" value="guide"> Guided tours</label>
+                        <label for="localsim"><input type="checkbox" id="localsim" name="additional" value="localsim"> Local Sim Services</label>
+                        <label for="airport"><input type="checkbox" id="airport" name="additional" value="airport"> Airport transfers</label>
+                    </td>
+                </tr>     
+
+                <!-- Budget range: Slider-->
+    <td><label>Budget Range:</label></td>
+    <td colspan="2">
+        <input type="range" id="budget" name="budget" min="500" max="100000" step="500">
+        <span id="budgetValue">$500</span>
+    </td>
+</tr>
+<tr class="comment-table">
+    <td> 
+        <label for="comment">Comments: </label>
+    </td>
+    <td colspan="2"> 
+        <textarea id="comment" name="comment" rows="4" placeholder="Type your comment here..."></textarea>
+    </td>
+</tr>
+
+        </table>
+        <div class="button-container">
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+    </div>
+    </form>
+
+    
+</body>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Explorilla. All rights reserved. | <a href="/">Contact Us</a></p>
+    </div>
+</footer>
+
+</html>
